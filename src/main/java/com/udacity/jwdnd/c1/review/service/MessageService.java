@@ -1,5 +1,7 @@
-package com.udacity.jwdnd.c1.review;
+package com.udacity.jwdnd.c1.review.service;
 
+import com.udacity.jwdnd.c1.review.model.chatForm;
+import com.udacity.jwdnd.c1.review.model.chatMessage;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

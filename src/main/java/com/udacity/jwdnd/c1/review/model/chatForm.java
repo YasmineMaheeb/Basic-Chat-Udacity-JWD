@@ -1,4 +1,4 @@
-package com.udacity.jwdnd.c1.review;
+package com.udacity.jwdnd.c1.review.model;
 
 import javax.annotation.PostConstruct;
 
