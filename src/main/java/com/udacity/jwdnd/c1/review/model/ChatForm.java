@@ -2,7 +2,7 @@ package com.udacity.jwdnd.c1.review.model;
 
 import javax.annotation.PostConstruct;
 
-public class chatForm {
+public class ChatForm {
      int type;
      String username;
      String text;

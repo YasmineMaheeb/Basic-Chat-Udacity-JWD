@@ -2,8 +2,9 @@ package com.udacity.jwdnd.c1.review.model;
 
 import javax.annotation.PostConstruct;
 
-public class chatMessage {
+public class ChatMessage {
     private String username, text;
+    private int messageid;
 
 
     public String getText(){
@@ -12,6 +13,14 @@ public class chatMessage {
 
     public String getUsername(){
         return username;
+    }
+
+    public int getId() {
+        return messageid;
+    }
+
+    public void setId(int id) {
+        this.messageid = id;
     }
 
     public void setUsername(String username) {
