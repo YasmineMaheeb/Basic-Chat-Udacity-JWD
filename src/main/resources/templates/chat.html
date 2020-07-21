@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
+<div class="form-group">
+    <label><a th:href="@{/logout}">Logout</a></label>
+</div>
 <body>
     <form action="#" th:action="@{'/chat'}" th:object="${chatForm}" method="POST">
-        <label for="username">Username:</label>
-        <input id="username" type="text" name="username" th:field="*{username}">
         <label for="messageText">Message Text:</label>
         <input id="messageText" type="text" name="text" th:field="*{text}">
         <label for="messageType">Message Type: </label>

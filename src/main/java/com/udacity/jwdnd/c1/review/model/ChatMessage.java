@@ -4,7 +4,7 @@ import javax.annotation.PostConstruct;
 
 public class ChatMessage {
     private String username, text;
-    private int messageid;
+    private int id;
 
 
     public String getText(){
@@ -16,11 +16,11 @@ public class ChatMessage {
     }
 
     public int getId() {
-        return messageid;
+        return id;
     }
 
     public void setId(int id) {
-        this.messageid = id;
+        this.id = id;
     }
 
     public void setUsername(String username) {
