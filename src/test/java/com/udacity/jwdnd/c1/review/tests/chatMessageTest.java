@@ -1,6 +1,8 @@
 package com.udacity.jwdnd.c1.review.tests;
 
 
+import com.udacity.jwdnd.c1.review.pages.ChatPage;
+import com.udacity.jwdnd.c1.review.pages.LoginPage;
 import com.udacity.jwdnd.c1.review.pages.SignupPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
@@ -21,12 +23,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class SignupTest {
+class chatMessageTest {
     @LocalServerPort
     private Integer port;
 
     private static WebDriver driver;
     private SignupPage signupPage;
+    private LoginPage loginPage;
+    private ChatPage chatPage;
     private static String fname;
     private static String lname;
     private static String username;
@@ -60,6 +64,7 @@ class SignupTest {
 
     @Test
     public void testSignupCases() throws InterruptedException {
+        //signup
         signupPage.submit();
         assertTrue(signupPage.getResult().contains("You successfully signed up!"));
         Thread.sleep(1000);
@@ -69,6 +74,30 @@ class SignupTest {
         signupPage.setPasswordField(password);
         signupPage.submit();
         assertTrue(signupPage.getResult().contains("username is not available"));
+
+        //login
+        driver.get("http://localhost:" + port + "/login");
+        loginPage = new LoginPage(driver);
+        loginPage.setUsername(username);
+        loginPage.setPasswordField(password);
+        loginPage.submit();
+        Thread.sleep(100);
+        String url = driver.getCurrentUrl();
+        assertTrue(url.contains("/chat"));
+
+        //chat
+        chatPage = new ChatPage(driver);
+//        chatPage.setTextField("Hi");
+//        chatPage.setType(0); //wrong
+//        chatPage.submit();
+//        boolean eq = chatPage.firstMessage().equals(username+": "+"Hi");
+//        assertTrue(eq);
+//
+        chatPage.setTextField("Hi");
+        chatPage.setType(1);
+        chatPage.submit();
+        boolean eq = chatPage.firstMessage().equals(username+": "+"HI");
+        assertTrue(eq);
     }
 
 }

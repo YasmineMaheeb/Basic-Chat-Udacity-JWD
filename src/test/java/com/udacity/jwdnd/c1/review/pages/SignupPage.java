@@ -55,17 +55,4 @@ public class SignupPage {
         usernameField.submit();
     }
 
-//    public int getDisplayedCount() {
-//        return Integer.parseInt(countDisplay.getText());
-//    }
-//
-//    public void incrementCount() {
-//        incrementButton.click();
-//    }
-//
-//    public void resetCount(int value) {
-//        resetValueField.clear();
-//        resetValueField.sendKeys(String.valueOf(value));
-//        resetButton.click();
-//    }
 }
